@@ -12,6 +12,5 @@ namespace AOC.Helpers
         public static IEnumerable<string> SplitInputByNewLine(
             string inputText) =>
             inputText.Split("\r\n").Select(str => str.Trim());
-
     }
 }

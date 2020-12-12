@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AdventOfCodeD1P2
+namespace AOC.Day1
 {
     class Program
     {

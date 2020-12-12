@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace AOC.Day4.Pt1
+namespace AOC.Day4.Pt2
 {
     class Program
     {

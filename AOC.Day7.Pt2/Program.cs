@@ -9,7 +9,7 @@ namespace AOC.Day7.Pt2
     class Program
     {
         static List<Bag> totalBagCollection = new List<Bag>();
-        static HashSet<Bag> bagCount = new HashSet<Bag>();
+        static List<Bag> bagCount = new List<Bag>();
 
         static void Main(string[] args)
         {
@@ -51,7 +51,7 @@ namespace AOC.Day7.Pt2
                     }
                 }
             }
-            FindBagsContainingShinyGoldBags(totalBagCollection.Where(b => b.Name == "shiny gold").FirstOrDefault().Parents);
+            CountChildren(totalBagCollection.Where(b => b.Name == "shiny gold").FirstOrDefault());
 
             Console.WriteLine($"Number of bags {bagCount.Count} ");
             Console.ReadKey();
@@ -72,14 +72,14 @@ namespace AOC.Day7.Pt2
             }
             return bag;
         }
-        static void FindBagsContainingShinyGoldBags(IEnumerable<Bag> bags)
+        static void CountChildren(Bag bag)
         {
-            foreach (var bag in bags)
+            foreach (var child in bag.Children)
             {
-                bagCount.Add(bag);
-                if (bag.Parents != null)
+                bagCount.Add(child);
+                if (child.Children != null)
                 {
-                    FindBagsContainingShinyGoldBags(bag.Parents.Distinct());
+                    CountChildren(child);
                 }
             }
         }
